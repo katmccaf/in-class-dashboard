@@ -2,6 +2,7 @@
 
 require '../../app/commom.php';
 
+//Get the taskId from URL params
 $taskID = intval($_GET['taskID'] ?? 0);
 
 if ($taskID < 1) {
@@ -9,7 +10,7 @@ if ($taskID < 1) {
 }
 
 
-//1. Go the the database and get all work associated with the $taskID
+//1. Go the the database and fetch all work associated with the $taskID
 $workArr = Work::getAllWorkByTask($taskId);
 
 //2. Convert to JSON

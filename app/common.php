@@ -6,5 +6,5 @@ set_include_path (_DIR_);
 
 require 'environment.php';
 
-// **MODELS** //
+// TODO: Require object files
 require 'models/Work.php';
