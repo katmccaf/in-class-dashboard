@@ -2,7 +2,7 @@
 
 class Work{
 
-  public $work_id;
+  public $id;
   public $start_date; //'YYYY-MM-DD'
   public $end_date; //'YYYY-MM-DD'
   public $task_id;
@@ -24,7 +24,7 @@ class Work{
     var_dump($db);
 
     die;
-    
+
     //2. Prepare SQL statement
     //3. Read the results
     //4. For each row, make a new work object
