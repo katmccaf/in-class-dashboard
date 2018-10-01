@@ -2,6 +2,11 @@
 
 require '../../app/commom.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  require 'workPost.php';
+  exit;
+}
+
 //Get the taskId from URL params
 $taskID = intval($_GET['taskID'] ?? 0);
 
