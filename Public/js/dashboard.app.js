@@ -74,7 +74,7 @@ var dashboardApp = new Vue({
     },
 
     fetchProject () {
-      fetch('https://raw.githubusercontent.com/tag/iu-msis/dev/public/project1.json')
+      fetch('https://raw.githubusercontent.com/tag/iu-msis/video/app/data/project1.json')
       .then( response => response.json() )
       .then( json => {dashboardApp.project = json} )
       .catch( err => {
