@@ -1,5 +1,6 @@
 <?php
 
-class Task {
-  
+class Task
+{
+
 }

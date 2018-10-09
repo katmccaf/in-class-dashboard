@@ -1,16 +1,19 @@
 var dashboardApp = new Vue({
   el: '#dashboard',
   data: {
-    project: {
-      name : '',
-      short_description: '',
-      start_date : '',
-      target_date : '',
-      budget : '',
-      spent : '',
-      projected_spend: '',
-      weekly_effort_target: ''
-    },
+    project: [
+      {
+        name : '',
+        short_description: '',
+        start_date : '',
+        target_date : '',
+        budget : '',
+        spent : '',
+        projected_spend: '',
+        weekly_effort_target: ''
+      }
+    ],
+
     tasks: [
       {
         id: 0,
@@ -27,27 +30,31 @@ var dashboardApp = new Vue({
       }
     ]
   },
+
   computed: {
     days_left: function () {
       return moment(this.project.target_date).diff(moment(), 'days')
     }
+
   },
   methods: {
     pretty_date: function (d) {
       return moment(d).format('l')
     },
+
     pretty_currency: function (val) {
       if (val < 1e3) {
         return '$ ' + val
       }
 
-      if (val < 1e6) {
+      if (val <1e6) {
         return '$ ' + (val/1e3).toFixed(1) + ' k'
       }
 
       return '$ ' + (val/1e6).toFixed(1) + ' M'
     },
-    completeClass: function(task) {
+
+    complete_class: function(task) {
       if (task.perc_complete == 100 ) {
         return 'alert-success'
       }
@@ -55,8 +62,13 @@ var dashboardApp = new Vue({
         return 'alert-warning'
       }
     },
+
     fetchTasks () {
+<<<<<<< HEAD
       fetch('https://github.com/tag/iu-msis/blob/video/app/data/p1-tasks.json')
+=======
+      fetch('https://raw.githubusercontent.com/tag/iu-msis/video/app/data/p1-tasks.json')
+>>>>>>> Video-Catch-Up
       .then( response => response.json() )
       .then( json => {dashboardApp.tasks = json} )
       .catch( err => {
@@ -64,6 +76,7 @@ var dashboardApp = new Vue({
         console.log(err);
       })
     },
+
     fetchProject () {
       fetch('https://raw.githubusercontent.com/tag/iu-msis/video/app/data/project1.json')
       .then( response => response.json() )
@@ -72,7 +85,13 @@ var dashboardApp = new Vue({
         console.log('PROJECT FETCH ERROR:');
         console.log(err);
       })
+    },
+
+    gotoTask(tid) {
+      //alert ('Clicked: ' + tid)
+      window.location = 'task.html?taskId' + tid;
     }
+
   },
   created () {
     this.fetchProject();

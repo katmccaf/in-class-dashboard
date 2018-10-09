@@ -1,11 +1,11 @@
 .placeholder {
   background-color: rgb(200,200,255);
-  border: 2px solid rgb(50, 50, 100);
+  border: 2px solid rgb(50,50,100);
 }
 
 section {
-  border: 1px dotted rgb(35, 95, 163);
-  text-align:center;
+  border: 1px dotted rgb(35,95,163);
+  text-align: center;
 }
 
 section h2 {
@@ -13,12 +13,13 @@ section h2 {
   text-transform: uppercase;
   color: #999;
   margin-top: 1em;
-  margin-bottom: 0;;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 section .ban {
   font-size: 20pt;
-  color: rgb(35, 95, 163);
+  color: rgb(35,95,163);
   font-weight: bold;
   margin-top: 0;
 }
@@ -27,9 +28,11 @@ section .ban {
   border-left: 12px solid #eee;
   cursor: pointer;
 }
+
 #taskTable > tbody > tr.current-sprint {
-  border-left: 12px solid rgb(35, 95, 163);
+  border-left: 12px solid rgb(35,95,163);
 }
+
 /** tablesort **/
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;

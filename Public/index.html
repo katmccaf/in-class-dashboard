@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/dashboard.css">
 
+
     <title>Project Dashboard</title>
   </head>
   <body>
-
 
     <main id="dashboard" class="container-fluid">
       <h1>{{ project.name }}</h1>
@@ -25,7 +25,7 @@
         <section class="col">
           <div class="row">
             <div class="col">
-              <h2>Due date</h2>
+              <h2>Due Date</h2>
               <div class="ban">{{ pretty_date(project.target_date) }}</div>
             </div>
             <div class="col">
@@ -38,29 +38,30 @@
         <div class="col placeholder">
           Status
         </div>
-      </div> <!-- end row 1, high-level summary information -->
+      </div> <!--end row 1-->
 
       <div class="row">
-        <section class="col">
-          <h2>Spent</h2>
-          <div class="ban">{{ pretty_currency(project.spent) }}</div>
+          <section class="col">
+            <h2>Spent</h2>
+            <div class="ban">{{ pretty_currency(project.spent) }}</div>
 
-          <h2>Budget</h2>
-          <div class="ban">{{ pretty_currency(project.budget) }}</div>
+            <h2>Budget</h2>
+            <div class="ban">{{ pretty_currency(project.budget) }}</div>
 
-          <h2>Projected Spend</h2>
-          <div class="ban">{{ pretty_currency(project.projected_spend) }}</div>
-        </section>
-        <div class="col placeholder" style="height:200px">
-          Burndown chart goes here.
-        </div>
-        <div class="col placeholder">
-          Effort chart goes here.
-        </div>
-      </div> <!-- end row 2, charts -->
+            <h2>Projected Spend</h2>
+            <div class="ban">{{ pretty_currency(project.projected_spend) }}</div>
+          </section>
 
-      <div class="row">
-        <table id="taskTable" class="table table-striped table-sm">
+          <div class="col placeholder">
+            Burndown chart goes here.
+          </div>
+          <div class="col placeholder">
+            Effort chart goes here.
+          </div>
+      </div> <!-- end row 2-->
+
+      <div class ="row">
+        <table id="taskTable" class="table table-striped table-sm table-hover">
           <thead>
             <tr>
               <th>Task</th>
@@ -86,11 +87,12 @@
               <td>{{ task.status }}</td>
               <td>{{ task.start_date }}</td>
               <td>{{ task.hours_worked }}</td>
-              <td :class="completeClass(task)">{{ task.perc_complete }}</td>
+              <td :class="complete_class(task)">{{ task.perc_complete }}</td>
             </tr>
           </tbody>
         </table>
-      </div> <!-- end row 3, tabular data -->
+
+      </div>  <!--end row 3-->
     </main>
 
     <!-- moment.js via CDN-->
@@ -102,17 +104,8 @@
 
     <script src="js/tablesort.min.js"></script>
     <script>
-      // Tablesort plugin from http://tristen.ca/tablesort/demo/
-      Tablesort.extend('tshirt', function(item) {
-        // Regular expression to test against.
-        return /^X?S|M|X?L|2XL$/.test(item);
-      }, function(a, b) {
-        // Custom sort functionality goes here.
-        // e.g var n = (a > b) ? -1 : 1;
-        var sizes = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
-        return sizes.indexOf(b) - sizes.indexOf(a);
-      });
-      new Tablesort(document.getElementById('taskTable'));
+    //Tablesort plugin from http://tristen.ca/tablesort/demo/
+    new Tablesort(document.getElementById('taskTable'));
     </script>
   </body>
 </html>
