@@ -8,3 +8,4 @@ require 'environment.php';
 
 /**MODELS **/
 require 'models/Work.php';
+require 'models/Team.php';

@@ -10,7 +10,7 @@ class Work
   public $hours;
   public $completion_estimate;
 
-  public function _construct($row) {
+  public function __construct($row) {
     $this->id = intval($row['id']);
 
     $this->task_id = intval($row['task_id']);
