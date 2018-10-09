@@ -12,12 +12,16 @@ section h2 {
   font-size: 10pt;
   text-transform: uppercase;
   color: #999;
+  margin-top: 1em;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 section .ban {
   font-size: 20pt;
   color: rgb(35,95,163);
-  font-weight:bold;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 /** tablesort **/
