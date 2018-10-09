@@ -24,6 +24,14 @@ section .ban {
   margin-top: 0;
 }
 
+#taskTable > tbody > tr {
+  border-left: 12px solid #eee;
+}
+
+#taskTable > tbody > tr.current-sprint {
+  border-left: 12px solid rgb(35,95,163);
+}
+
 /** tablesort **/
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
