@@ -109,6 +109,57 @@ var dashboardApp = new Vue({
       console.log(this.workHours);
     },
 
+    buildEffortChart() {
+      Highcharts.chart('effortChart', {
+          title: {
+              text: 'Cumulative Effort'
+          },
+          xAxis: {
+              type: 'datetime'
+          },
+          yAxis: {
+              title: {
+                  text: 'Hours'
+              }
+          },
+          legend: {
+              enabled: false
+          },
+          plotOptions: {
+              area: {
+                  fillColor: {
+                      linearGradient: {
+                          x1: 0,
+                          y1: 0,
+                          x2: 0,
+                          y2: 1
+                      },
+                      stops: [
+                          [0, Highcharts.getOptions().colors[0]],
+                          [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                      ]
+                  },
+                  marker: {
+                      radius: 2
+                  },
+                  lineWidth: 1,
+                  states: {
+                      hover: {
+                          lineWidth: 1
+                      }
+                  },
+                  threshold: null
+              }
+          },
+          series: [{
+              type: 'area',
+              name: 'EFfort (hrs)',
+              data: // Need [ [date1, val1], [date1, val2],... ]
+                this.workHours.map( entry => [entry.date, entry.TotalRunningHours])
+          }]
+      });
+    },
+
     gotoTask(tid) {
       //alert ('Clicked: ' + tid)
       window.location = 'task.html?taskId' + tid;
